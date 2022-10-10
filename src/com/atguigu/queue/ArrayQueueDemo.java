@@ -17,6 +17,7 @@ class ArrayQueue {
 
     public ArrayQueue(int maxSize){
         this.maxSize = maxSize;
+        arr = new int[maxSize];
     }
 
     // 判断队列是否满了
@@ -70,47 +71,4 @@ class ArrayQueue {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public int getMaxSize() {
-        return maxSize;
-    }
-
-    public void setMaxSize(int maxSize) {
-        this.maxSize = maxSize;
-    }
-
-    public int getFront() {
-        return front;
-    }
-
-    public void setFront(int front) {
-        this.front = front;
-    }
-
-    public int getRear() {
-        return rear;
-    }
-
-    public void setRear(int rear) {
-        this.rear = rear;
-    }
-
-    public int[] getArr() {
-        return arr;
-    }
-
-    public void setArr(int[] arr) {
-        this.arr = arr;
-    }
 }
