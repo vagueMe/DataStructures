@@ -35,9 +35,10 @@ public class SingleLinkedList {
         }
         if(flag){
             System.out.println("已经存在：" + heroNode.value);
+            return;
         }
         heroNode.next = temp.next;
-        // todo
+        temp.next = heroNode;
     }
 
     public void list(){

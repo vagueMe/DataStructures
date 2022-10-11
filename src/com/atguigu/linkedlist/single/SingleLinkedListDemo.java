@@ -7,10 +7,19 @@ package com.atguigu.linkedlist.single;
 public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
+//        SingleLinkedList demo = new SingleLinkedList();
+//        demo.add(new HeroNode(1));
+//        demo.add(new HeroNode(2));
+//        demo.add(new HeroNode(3));
+//        demo.list();
+
         SingleLinkedList demo = new SingleLinkedList();
-        demo.add(new HeroNode(1));
-        demo.add(new HeroNode(2));
-        demo.add(new HeroNode(3));
+        demo.addByOrder(new HeroNode(1));
+        demo.addByOrder(new HeroNode(3));
+        demo.addByOrder(new HeroNode(5));
+        demo.addByOrder(new HeroNode(7));
+        demo.addByOrder(new HeroNode(9));
+        demo.addByOrder(new HeroNode(6));
         demo.list();
     }
 }
