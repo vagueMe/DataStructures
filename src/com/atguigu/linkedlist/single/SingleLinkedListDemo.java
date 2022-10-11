@@ -1,0 +1,16 @@
+package com.atguigu.linkedlist.single;
+
+/**
+ * @author hudi
+ * @date 2022/10/11 16:00
+ */
+public class SingleLinkedListDemo {
+
+    public static void main(String[] args) {
+        SingleLinkedList demo = new SingleLinkedList();
+        demo.add(new HeroNode(1));
+        demo.add(new HeroNode(2));
+        demo.add(new HeroNode(3));
+        demo.list();
+    }
+}

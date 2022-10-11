@@ -23,6 +23,7 @@ public class CircleArrayQueueDemo {
             System.out.println("l: 列出列队头的数据");
 
             key = scanner.next().charAt(0);
+            System.out.println("输入了吗？");
 
             switch (key) {
                 case 's':
