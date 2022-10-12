@@ -2,6 +2,7 @@ package com.atguigu.linkedlist.single;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author hudi
@@ -124,6 +125,21 @@ public class SingleLinkedList {
 
         }
         head.next = result.next;
+    }
+
+    public void endPrintf(HeroNode heroNode){
+        HeroNode temp = heroNode.next;
+        Stack<HeroNode> stack = new Stack<>();
+        while (temp != null){
+            stack.push(temp);
+            temp = temp.next;
+        }
+
+        while (stack.size() > 0){
+            System.out.println(stack.pop());
+        }
+
+
     }
 
 
