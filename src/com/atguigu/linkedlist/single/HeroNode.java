@@ -9,6 +9,10 @@ public class HeroNode {
     public String name;
     public HeroNode next;
 
+    public HeroNode( ){
+    }
+
+
     public HeroNode(int value ){
         this.value = value;
     }

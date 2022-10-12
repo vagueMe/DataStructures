@@ -22,13 +22,13 @@ public class SingleLinkedListDemo {
 
         SingleLinkedList demo2 = new SingleLinkedList();
         demo2.addByOrder(new HeroNode(2));
-        demo2.addByOrder(new HeroNode(4));
         demo2.addByOrder(new HeroNode(6));
         demo2.addByOrder(new HeroNode(8));
         demo2.addByOrder(new HeroNode(10));
 
 
-        demo.mergeHeroNode(demo.getHead(),demo2.getHead());
+//        demo.mergeHeroNode(demo.getHead(),demo2.getHead());
+        demo.mergeHeroNode(demo2.getHead(),demo.getHead());
 
 //        demo.endPrintf(demo.getHead());
 

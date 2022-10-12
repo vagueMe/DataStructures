@@ -142,27 +142,65 @@ public class SingleLinkedList {
 
     }
 
+    public static void main(String[] args) {
+        HeroNode test  = new HeroNode();
+        test.value = 1;
+        testMethod(test);
+        System.out.println(test.value);
+    }
+
+    public static void testMethod(HeroNode test){
+        test = new HeroNode();
+        test.value = 2;
+    }
+
 
     public HeroNode mergeHeroNode(HeroNode first, HeroNode second){
+        // 1 3 5 7 9
+        // 2 4 6 8 10
+        HeroNode left = first.next;
+        HeroNode right = second.next;
 
-        HeroNode cur = first;
-        HeroNode temp = null;
-        while (cur != null){
-            temp = cur.next;
-            HeroNode secCur = second.next;
-            while (secCur != null){
-
-                if(temp == null || temp.value >=  secCur.value){
-                    cur.next = secCur;
-                    cur = cur.next;
-                    secCur = secCur.next;
-                } else {
-                    second.next = secCur;
-                    break;
-                }
+        // 记录上一个节点，用于插入
+        HeroNode leftLast = first;
+        while (right != null) {
+            if (left.value >= right.value) {
+                leftLast.next = right;
+                HeroNode rightNext = right.next;
+                right.next = left;
+                right = rightNext;
+            } else {
+                leftLast = left;
+                left = left.next;
+            }
+            if (left == null) {
+                leftLast.next = right;
+                break;
             }
         }
         return first;
+
+
+//        HeroNode cur = first;
+//        HeroNode temp = null;
+//        while (cur != null){
+//            temp = cur.next;
+//            HeroNode secCur = second.next;
+//            while (secCur != null){
+//
+//                if(temp == null || temp.value >=  secCur.value){
+//                    cur.next = secCur;
+//                    cur = cur.next;
+//                    secCur = secCur.next;
+//                } else {
+//                    second.next = secCur;
+//                    break;
+//                }
+//            }
+//            cur.next = temp;
+//        }
+//
+//        return first;
     }
 
 
