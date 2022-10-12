@@ -1,5 +1,8 @@
 package com.atguigu.linkedlist.single;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author hudi
  * @date 2022/10/11 15:59
@@ -77,6 +80,35 @@ public class SingleLinkedList {
         }
     }
 
+    public void endList (HeroNode head){
+        List<HeroNode> list = new ArrayList<>();
+        HeroNode temp = head.next;
+        while (temp != null){
+            HeroNode newHero = temp;
+            temp = temp.next;
+            newHero.next = null;
+            list.add(newHero);
+        }
+        System.out.println("---");
+        for (int i = list.size() - 1; i > 0; i--) {
+            list.get(i).next = list.get(i-1);
+        }
+        head.next = list.get(list.size() - 1);
+    }
+
+    public void endList2 (HeroNode head){
+
+        HeroNode result = new HeroNode(0);
+        HeroNode temp = head.next;
+        while (temp != null){
+            HeroNode newH = temp;
+            temp = temp.next;
+            newH.next =  result.next;
+            result.next = newH;
+        }
+        head.next = result.next;
+    }
+
 
     public void list(){
         if(head.next  == null){
@@ -94,4 +126,11 @@ public class SingleLinkedList {
         }
     }
 
+    public HeroNode getHead() {
+        return head;
+    }
+
+    public void setHead(HeroNode head) {
+        this.head = head;
+    }
 }

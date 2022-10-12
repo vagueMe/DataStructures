@@ -20,10 +20,10 @@ public class SingleLinkedListDemo {
         demo.addByOrder(new HeroNode(7));
         demo.addByOrder(new HeroNode(9));
         demo.addByOrder(new HeroNode(6));
-
-        demo.update(new HeroNode(6,"名称"));
-
-        demo.delete(new HeroNode(9 ));
+        demo.endList2(demo.getHead());
+//        demo.update(new HeroNode(6,"名称"));
+//
+//        demo.delete(new HeroNode(9 ));
         demo.list();
     }
 }
