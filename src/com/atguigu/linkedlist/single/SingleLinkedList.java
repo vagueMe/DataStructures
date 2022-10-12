@@ -100,11 +100,28 @@ public class SingleLinkedList {
 
         HeroNode result = new HeroNode(0);
         HeroNode temp = head.next;
+        HeroNode newH = null;
         while (temp != null){
-            HeroNode newH = temp;
+            newH = temp;
             temp = temp.next;
             newH.next =  result.next;
             result.next = newH;
+        }
+        head.next = result.next;
+    }
+
+
+    public void endList3 (HeroNode head){
+
+        HeroNode result = new HeroNode(0);
+        HeroNode temp = head.next;
+        HeroNode newH = null;
+        while (temp != null){
+            newH = temp.next;
+            temp.next = result.next;
+            result.next = temp;
+            temp = newH;
+
         }
         head.next = result.next;
     }
