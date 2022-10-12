@@ -19,9 +19,18 @@ public class SingleLinkedListDemo {
         demo.addByOrder(new HeroNode(5));
         demo.addByOrder(new HeroNode(7));
         demo.addByOrder(new HeroNode(9));
-        demo.addByOrder(new HeroNode(6));
 
-        demo.endPrintf(demo.getHead());
+        SingleLinkedList demo2 = new SingleLinkedList();
+        demo2.addByOrder(new HeroNode(2));
+        demo2.addByOrder(new HeroNode(4));
+        demo2.addByOrder(new HeroNode(6));
+        demo2.addByOrder(new HeroNode(8));
+        demo2.addByOrder(new HeroNode(10));
+
+
+        demo.mergeHeroNode(demo.getHead(),demo2.getHead());
+
+//        demo.endPrintf(demo.getHead());
 
 //        demo.endList2(demo.getHead());
 //        demo.update(new HeroNode(6,"名称"));

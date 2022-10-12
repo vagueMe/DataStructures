@@ -143,6 +143,29 @@ public class SingleLinkedList {
     }
 
 
+    public HeroNode mergeHeroNode(HeroNode first, HeroNode second){
+
+        HeroNode cur = first;
+        HeroNode temp = null;
+        while (cur != null){
+            temp = cur.next;
+            HeroNode secCur = second.next;
+            while (secCur != null){
+
+                if(temp == null || temp.value >=  secCur.value){
+                    cur.next = secCur;
+                    cur = cur.next;
+                    secCur = secCur.next;
+                } else {
+                    second.next = secCur;
+                    break;
+                }
+            }
+        }
+        return first;
+    }
+
+
     public void list(){
         if(head.next  == null){
             System.out.println("链表我空");
