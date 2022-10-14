@@ -160,7 +160,8 @@ public class SingleLinkedList {
         // 2 4 6 8 10
         HeroNode left = first.next;
         HeroNode right = second.next;
-
+        // 1 5 6 8
+        // 2 3 4 7  对于这组数据存在bug
         // 记录上一个节点，用于插入
         HeroNode leftLast = first;
         while (right != null) {
@@ -180,29 +181,36 @@ public class SingleLinkedList {
         }
         return first;
 
-
-//        HeroNode cur = first;
-//        HeroNode temp = null;
-//        while (cur != null){
-//            temp = cur.next;
-//            HeroNode secCur = second.next;
-//            while (secCur != null){
-//
-//                if(temp == null || temp.value >=  secCur.value){
-//                    cur.next = secCur;
-//                    cur = cur.next;
-//                    secCur = secCur.next;
-//                } else {
-//                    second.next = secCur;
-//                    break;
-//                }
-//            }
-//            cur.next = temp;
-//        }
-//
-//        return first;
     }
 
+
+    public HeroNode mergeHeroNode2(HeroNode first, HeroNode second){
+        // 1 3 5 7 9
+        // 2 4 6 8 10
+        HeroNode left = first.next;
+        HeroNode right = second.next;
+
+        // 记录上一个节点，用于插入
+        HeroNode last = first;
+        while (right != null) {
+            if(left.value > right.value){
+                last.next = right;
+                last = right;
+                right = right.next;
+                last.next = left;
+
+            } else {
+                last =  left;
+                left = left.next;
+            }
+            if (left == null) {
+                last.next = right;
+                break;
+            }
+        }
+        return first;
+
+    }
 
     public void list(){
         if(head.next  == null){
