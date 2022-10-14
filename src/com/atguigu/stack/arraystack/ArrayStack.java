@@ -30,13 +30,24 @@ public class ArrayStack {
         this.stack[top] = value;
     }
 
-    public int pool(){
+    public int pop(){
         if(isEmpty()){
             throw new RuntimeException("没有数据了");
         }
         int temp = this.stack[this.top];
         this.top--;
         return  temp;
+    }
+
+    public void list(){
+        if(isEmpty()){
+            throw new RuntimeException("没有数据了");
+        }
+
+        for (int i = this.top; i >= 0; i--) {
+            System.out.println(this.stack[i]);
+        }
+
     }
 
 
