@@ -28,14 +28,14 @@ public class SingleLinkedListDemo {
 
 
         SingleLinkedList demo = new SingleLinkedList();
-        demo.addByOrder(new HeroNode(1));
-        demo.addByOrder(new HeroNode(2));
-        demo.addByOrder(new HeroNode(4));
+        demo.addByOrder(new ListNode(1));
+        demo.addByOrder(new ListNode(2));
+        demo.addByOrder(new ListNode(4));
 
         SingleLinkedList demo2 = new SingleLinkedList();
-        demo2.addByOrder(new HeroNode(1));
-        demo2.addByOrder(new HeroNode(3));
-        demo2.addByOrder(new HeroNode(4));
+        demo2.addByOrder(new ListNode(1));
+        demo2.addByOrder(new ListNode(3));
+        demo2.addByOrder(new ListNode(4));
 
 
 //        demo.mergeHeroNode(demo.getHead(),demo2.getHead());

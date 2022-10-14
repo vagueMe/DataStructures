@@ -10,10 +10,10 @@ import java.util.Stack;
  */
 public class SingleLinkedList {
 
-    private HeroNode head = new HeroNode(0);
+    private ListNode head = new ListNode(0);
 
-    public void add(HeroNode heroNode){
-        HeroNode temp = head;
+    public void add(ListNode heroNode){
+        ListNode temp = head;
         while (true){
             if(temp.next == null){
                 break;
@@ -23,37 +23,37 @@ public class SingleLinkedList {
         temp.next = heroNode;
     }
 
-    public void addByOrder(HeroNode heroNode){
-        HeroNode temp = head;
+    public void addByOrder(ListNode heroNode){
+        ListNode temp = head;
         boolean flag = false;
         while (true){
             if(temp.next == null){
                 break;
-            } else if (temp.next.value > heroNode.value){
+            } else if (temp.next.val > heroNode.val){
                 break;
-            } else  if(temp.next.value == heroNode.value){
+            } else  if(temp.next.val == heroNode.val){
                 flag = true;
                 break;
             }
             temp = temp.next;
         }
         if(flag){
-            System.out.println("已经存在：" + heroNode.value);
+            System.out.println("已经存在：" + heroNode.val);
             return;
         }
         heroNode.next = temp.next;
         temp.next = heroNode;
     }
 
-    public void update(HeroNode heroNode){
+    public void update(ListNode heroNode){
         if(head.next == null || heroNode == null){
             System.out.println("修改失败");
             return;
         }
 
-        HeroNode temp = head.next;
+        ListNode temp = head.next;
         while (temp != null){
-            if(temp.value == heroNode.value){
+            if(temp.val == heroNode.val){
                 temp.name = heroNode.name;
                 return;
             } else {
@@ -63,15 +63,15 @@ public class SingleLinkedList {
         }
     }
 
-    public void delete(HeroNode heroNode){
+    public void delete(ListNode heroNode){
         if(head.next == null || heroNode == null){
             System.out.println("数据为空");
             return;
         }
         // 因为是要删除目标，所以temp不能等于目标，都等于目标了，那就不能操作删除了
-        HeroNode temp = head;
+        ListNode temp = head;
         while (temp != null){
-            if(temp.next.value == heroNode.value){
+            if(temp.next.val == heroNode.val){
                 temp.next = temp.next.next;
                 return;
             } else {
@@ -81,11 +81,11 @@ public class SingleLinkedList {
         }
     }
 
-    public void endList (HeroNode head){
-        List<HeroNode> list = new ArrayList<>();
-        HeroNode temp = head.next;
+    public void endList (ListNode head){
+        List<ListNode> list = new ArrayList<>();
+        ListNode temp = head.next;
         while (temp != null){
-            HeroNode newHero = temp;
+            ListNode newHero = temp;
             temp = temp.next;
             newHero.next = null;
             list.add(newHero);
@@ -97,11 +97,11 @@ public class SingleLinkedList {
         head.next = list.get(list.size() - 1);
     }
 
-    public void endList2 (HeroNode head){
+    public void endList2 (ListNode head){
 
-        HeroNode result = new HeroNode(0);
-        HeroNode temp = head.next;
-        HeroNode newH = null;
+        ListNode result = new ListNode(0);
+        ListNode temp = head.next;
+        ListNode newH = null;
         while (temp != null){
             newH = temp;
             temp = temp.next;
@@ -112,11 +112,11 @@ public class SingleLinkedList {
     }
 
 
-    public void endList3 (HeroNode head){
+    public void endList3 (ListNode head){
 
-        HeroNode result = new HeroNode(0);
-        HeroNode temp = head.next;
-        HeroNode newH = null;
+        ListNode result = new ListNode(0);
+        ListNode temp = head.next;
+        ListNode newH = null;
         while (temp != null){
             newH = temp.next;
             temp.next = result.next;
@@ -127,9 +127,9 @@ public class SingleLinkedList {
         head.next = result.next;
     }
 
-    public void endPrintf(HeroNode heroNode){
-        HeroNode temp = heroNode.next;
-        Stack<HeroNode> stack = new Stack<>();
+    public void endPrintf(ListNode heroNode){
+        ListNode temp = heroNode.next;
+        Stack<ListNode> stack = new Stack<>();
         while (temp != null){
             stack.push(temp);
             temp = temp.next;
@@ -143,31 +143,31 @@ public class SingleLinkedList {
     }
 
     public static void main(String[] args) {
-        HeroNode test  = new HeroNode();
-        test.value = 1;
+        ListNode test  = new ListNode();
+        test.val = 1;
         testMethod(test);
-        System.out.println(test.value);
+        System.out.println(test.val);
     }
 
-    public static void testMethod(HeroNode test){
-        test = new HeroNode();
-        test.value = 2;
+    public static void testMethod(ListNode test){
+        test = new ListNode();
+        test.val = 2;
     }
 
 
-    public HeroNode mergeHeroNode(HeroNode first, HeroNode second){
+    public ListNode mergeHeroNode(ListNode first, ListNode second){
         // 1 3 5 7 9
         // 2 4 6 8 10
-        HeroNode left = first.next;
-        HeroNode right = second.next;
+        ListNode left = first.next;
+        ListNode right = second.next;
         // 1 5 6 8
         // 2 3 4 7  对于这组数据存在bug
         // 记录上一个节点，用于插入
-        HeroNode leftLast = first;
+        ListNode leftLast = first;
         while (right != null) {
-            if (left.value >= right.value) {
+            if (left.val >= right.val) {
                 leftLast.next = right;
-                HeroNode rightNext = right.next;
+                ListNode rightNext = right.next;
                 right.next = left;
                 right = rightNext;
             } else {
@@ -184,16 +184,16 @@ public class SingleLinkedList {
     }
 
 
-    public HeroNode mergeHeroNode2(HeroNode first, HeroNode second){
+    public ListNode mergeHeroNode2(ListNode first, ListNode second){
         // 1 3 5 7 9
         // 2 4 6 8 10
-        HeroNode left = first.next;
-        HeroNode right = second.next;
+        ListNode left = first.next;
+        ListNode right = second.next;
 
         // 记录上一个节点，用于插入
-        HeroNode last = first;
+        ListNode last = first;
         while (right != null) {
-            if(left.value > right.value){
+            if(left.val > right.val){
                 last.next = right;
                 last = right;
                 right = right.next;
@@ -218,7 +218,7 @@ public class SingleLinkedList {
             return;
         }
 
-        HeroNode temp = head.next;
+        ListNode temp = head.next;
         while (true){
             if(temp == null){
                 break;
@@ -228,11 +228,11 @@ public class SingleLinkedList {
         }
     }
 
-    public HeroNode getHead() {
+    public ListNode getHead() {
         return head;
     }
 
-    public void setHead(HeroNode head) {
+    public void setHead(ListNode head) {
         this.head = head;
     }
 }
