@@ -53,9 +53,8 @@ public class PolanNotation {
     }
 
     public static List<String> toResultString(List<String> old){
-        List<String> list = new ArrayList<>();
         Stack<String> oper = new Stack<>();
-        Stack<String> all = new Stack<>();
+        List<String> all = new ArrayList<>();
         for (String s : old) {
             if(notNumber(s)){
                 if(oper.isEmpty() || "(".equals(s) || isAdd(s , oper.peek())){
@@ -64,19 +63,16 @@ public class PolanNotation {
                     setRight(oper, all, s);
                 }
             } else {
-                all.push(s);
+                all.add(s);
             }
         }
         while (!oper.empty()){
-            all.push(oper.pop());
+            all.add(oper.pop());
         }
-        for (int i = 0; i < all.size(); i++) {
-            list.add(all.get(i));
-        }
-        return list;
+        return all;
     }
 
-    public static void setRight(Stack<String> s1, Stack<String> s2, String temp){
+    public static void setRight(Stack<String> s1, List<String> s2, String temp){
 
         String pop = s1.pop();
         if(")".equals(temp)){
@@ -84,11 +80,11 @@ public class PolanNotation {
             if("(".equals(pop)){
                 return;
             } else {
-                s2.push(pop);
+                s2.add(pop);
                 setRight(s1,  s2, temp);
             }
         } else {
-            s2.push(pop);
+            s2.add(pop);
             if(s1.isEmpty() || isAdd(temp , s1.peek())){
                 s1.push(temp);
                 return;
