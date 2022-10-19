@@ -6,24 +6,26 @@ package com.atguigu.recursion;
  */
 public class Queen8 {
 
-    int max = 8;
-    int[] arr = new int[max];
+    int max;
+    int[] arr;
     int count = 0;
     int judeCount = 0;
-    public Queen8(){
-
+    public Queen8(int max){
+        this.max = max;
+        arr = new int[max];
     }
 
     public static void main(String[] args) {
 
-        Queen8 queen8 = new Queen8();
+        Queen8 queen8 = new Queen8(8);
         queen8.check(0);
         System.out.println(queen8.count);
+        System.out.println(queen8.judeCount);
 
     }
 
     private void check(int n){
-        if(n == 8) {
+        if(n == max) {
             // n从0开始的，当判断n=8就说已经在方第九个了，前面的8个都已经摆放好了
             count++;
             print();
