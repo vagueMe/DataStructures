@@ -20,7 +20,7 @@ public class BubbleSort {
         long l = System.currentTimeMillis();
         sort(arr);
         System.out.println(Arrays.toString(arr));
-        System.out.println("耗时:" + (System.currentTimeMillis() - l)/1000);
+        System.out.println("耗时:" + (System.currentTimeMillis() - l)/1000); // 约耗时6-7秒
     }
 
     /**
