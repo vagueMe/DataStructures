@@ -41,7 +41,7 @@ public class RadixSort {
             temp = 0;
             for (int k = 0; k < 10; k++) {
                 for (int l = 0; l < index[k]; l++) {
-                    arr[temp] = tong[k][index[l]];
+                    arr[temp] = tong[k][l];
                     temp++;
                 }
                 index[k] = 0;
